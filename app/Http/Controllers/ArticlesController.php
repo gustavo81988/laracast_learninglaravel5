@@ -12,13 +12,14 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $data['articles'] = Article::latest('published_at')->get();
+        $data['articles'] = Article::latest('published_at')->published()->get();
         return view('articles.index',$data);
     }
 
     public function show($id)
     {
         $data['article'] = Article::findOrFail($id);
+        dd($data['article']->published_at);
         return view('articles.show',$data);
     }
 
@@ -29,10 +30,7 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->all();
-        $input['published_at'] =Carbon::now();
-        Article::create($input);
-
+        Article::create($request->all());
         return redirect('articles');
     }
 

@@ -19,6 +19,11 @@
         </div>
 
         <div class="form-group">
+            <label for="published_at">Publish On:</label>
+            <input type="date" name="published_at" class="form-control" value="{{date('Y-m-d')}}">
+        </div>
+
+        <div class="form-group">
             <input type="submit" value="Add Article" class="btn btn-primary form-control">
         </div>
 
