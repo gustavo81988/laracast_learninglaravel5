@@ -5,8 +5,5 @@ Route::get('contact','PagesController@contact');
 Route::get('articles','ArticlesController@index');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('articles/create','ArticlesController@create');
-    Route::post('articles','ArticlesController@store');
+    Route::resource('articles','ArticlesController');
 });
-
-Route::get('articles/{id}','ArticlesController@show');
