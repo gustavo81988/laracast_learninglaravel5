@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Http\Requests;
+use App\Http\Requests\CreateArticleRequest;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 
 class ArticlesController extends Controller
 {
@@ -28,7 +28,7 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateArticleRequest $request)
     {
         Article::create($request->all());
         return redirect('articles');
