@@ -1,3 +1,5 @@
+<input type="hidden" name="user_id" value="1">
+
 <div class="form-group">
     <label for="title">Title:</label>
     <input type="text" name="title" class="form-control" value="{{isset($article) ? $article->title : '' }}">
